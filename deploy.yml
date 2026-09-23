@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: attics-deployment
+  labels:
+    app: attics
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: attics
+
+  template:
+    metadata:
+      labels:
+        app: attics
+
+    spec:
+      containers:
+        - name: attics
+          image: nginx:latest
+
+          ports:
+            - containerPort: 80
+
+          
